@@ -1,23 +1,5 @@
-const express = require('express');
-const router = express.Router();
-const db = require('../db');
-
-const createPet = async (req, res) => {
-    const { name, species, gender, age, weight, isVaccinated, existingCondistions } = req.body;
-
-    try{
-        const result = await db.one(
-            `INSERT INTO pets (name, species, gender, age, weight, isVaccinated, existingCondistions)
-            VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
-            [name, species, gender, age, weight, isVaccinated, existingCondistions]
-        );
-
-        res.status(201).json(result);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({error: 'Failed to create pet'});
-    }
-}
+const { get } = require('express/lib/response');
+const db = require('../db/dbConfig');
 
 // Get all pets
 const getAllPets = async () => {
@@ -38,6 +20,30 @@ const getPet = async (id) => {
     return error;
   }
 };
+
+// Create a new pet
+const createPet = async (req, res) => {
+  const {
+    name,
+    species,
+    gender,
+    age,
+    weight,
+    isVaccinated,
+    existingConditions,
+  } = req.body;
+
+  try {
+    const result = await db.one(
+      `INSERT INTO pets (name, species, gender, age, weight, isVaccinated, existingConditions) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`
+    );
+    res.status(201).json(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to create pet' });
+  }
+};
+
 
 // Delete a pet
 const deletePet = async (id) => {
@@ -72,6 +78,7 @@ const updatePet = async (id, pet) => {
 module.exports = {
   getAllPets,
   getPet,
+  createPet,
   deletePet,
   updatePet,
 };
