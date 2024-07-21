@@ -23,27 +23,25 @@ const getPet = async (id) => {
 
 // Create a new pet
 const createPet = async (pet) => {
-  const {
-    name,
-    species,
-    gender,
-    age,
-    weight,
-    isVaccinated,
-    existingConditions,
-  } = pet;
-
   try {
-    const result = await db.one(
-      `INSERT INTO pets (name, species, gender, age, weight, isVaccinated, existingConditions) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`
+    const newPet = await db.one(
+      `INSERT INTO pets (name, species, gender, age, weight, isVaccinated, existingConditions) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
+      [
+        pet.name,
+        pet.species,
+        pet.gender,
+        pet.age,
+        pet.weight,
+        pet.isVaccinated,
+        pet.existingConditions,
+      ]
     );
-    return result;
+    return newPet;
   } catch (error) {
     console.error(error);
     throw error;
   }
 };
-
 
 // Delete a pet
 const deletePet = async (id) => {
