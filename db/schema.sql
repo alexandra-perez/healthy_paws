@@ -9,6 +9,6 @@ species TEXT NOT NULL,
 gender TEXT NOT NULL,
 age INT NOT NULL,
 weight INT NOT NULL,
-isVaccinated boolean DEFAULT FALSE,
-existingConditions: DEFAULT '',
+isVaccinated BOOLEAN DEFAULT FALSE,
+existingConditions TEXT DEFAULT ''
 );
