@@ -4,6 +4,7 @@ CREATE DATABASE pets_prod;
 \c pets_prod;
 
 CREATE TABLE pets (
+id SERIAL PRIMARY KEY,
 name TEXT NOT NULL,
 species TEXT NOT NULL,
 gender TEXT NOT NULL,
