@@ -6,8 +6,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// const petsController = require('./controllers/petsController');
-// app.use('/pets', petsController);
+ const petsController = require('./controllers/petsController');
+ app.use('/pets', petsController);
 
 app.get('/', (req, res) => {
   res.send('Welcome to HealthyPaws');

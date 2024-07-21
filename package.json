@@ -1,10 +1,14 @@
 {
-  "name": "healthy_paws",
+  "name": "healthy_paws_backend",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "db:init": "psql -U postgres -f db/schema.sql",
+    "db:seed": "psql -U postgres -f db/seed.sql",
+    "db:everything": "npm run db:init && npm run db:seed"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +18,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "nodemon": "^3.1.4",
+    "pg-promise": "^11.9.1",
     "react-router": "^6.25.1",
     "sass": "^1.77.8"
   }
