@@ -23,7 +23,7 @@ function App() {
         return res.json();
       })
       .then((resJSON) => {
-        console.log(resJSON);
+        // console.log(resJSON);
         setPets(resJSON);
       });
   }, []);

@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import PetProfile from '../Components/PetProfile/PetProfile';
 
 export default function ShowPet() {
   const [currentPet, setCurrentPet] = useState({
@@ -14,13 +16,15 @@ export default function ShowPet() {
   let { id } = useParams();
   const navigate = useNavigate();
 
+  const API = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     fetch(`${API}/pets/${id}`)
       .then((res) => {
         return res.json();
       })
       .then((resJSON) => {
-        // console.log(resJSON);
+        console.log(resJSON);
         setCurrentPet(resJSON);
       })
       .catch(() => {
@@ -30,7 +34,7 @@ export default function ShowPet() {
 
   return (
     <div className="ShowPet">
-      <h1>Show pet</h1>
+          <PetProfile currentPet={currentPet} setCurrentPet={setCurrentPet} />
     </div>
   );
 }
