@@ -11,14 +11,29 @@ import AboutUs from '../src/Pages/AboutUs';
 import NavBar from './Components/NavBar/NavBar';
 import Footer from './Components/Footer/Footer';
 
+const API = import.meta.env.VITE_API_URL;
+
 function App() {
+  const [pets, setPets] = useState([]);
+
+  useEffect(() => {
+    fetch(`${API}/pets`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((resJSON) => {
+        console.log(resJSON);
+        setPets(resJSON);
+      });
+  }, []);
+
   return (
     <div className="Wrapper">
       <Router>
         <NavBar />
         <Routes>
           <Route path="/" element={<Splash />} />
-          <Route path="/pets" element={<Index />} />
+          <Route path="/pets" element={<Index pets={pets} setPets={setPets} />} />
         </Routes>
         <Footer />
       </Router>

@@ -1,0 +1,18 @@
+.PetCard {
+    padding: 2rem;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    width: 20%;
+    margin: 10px auto;
+    overflow: hidden;
+
+    img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        display: block;
+        margin: 0 auto;
+    }
+
+}
