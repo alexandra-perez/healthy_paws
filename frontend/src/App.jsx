@@ -1,8 +1,9 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './Components/NavBar/NavBar';
 import Footer from './Components/Footer/Footer';
-import Index from './Pages/Index';
+import Index from './Pages/Index/Index';
 import AboutUs from './Pages/AboutUs';
 import Splash from './Pages/Splash';
 
