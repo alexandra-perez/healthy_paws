@@ -20,4 +20,20 @@ button {
   border-radius: 30px;
   padding: 10px 15px;
   border: none;
+=======
+
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+
+* {
+    font-family: sans-serif;
 }
