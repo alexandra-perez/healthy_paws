@@ -6,7 +6,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Index from './Pages/Index/Index';
 import AboutUs from './Pages/AboutUs';
 import Splash from './Pages/Splash';
-import ShowPet from "./Pages/ShowPet"
+import ShowPet from './Pages/ShowPet';
+import CreatePet from './Pages/CreatePet';
 
 // Components
 import NavBar from './Components/NavBar/NavBar';
@@ -39,8 +40,9 @@ function App() {
             element={<Index pets={pets} setPets={setPets} />}
           />
           <Route path="/pets/:id" element={<ShowPet />} />
+          <Route path="/create-pet" element={<CreatePet />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Router>
   );
