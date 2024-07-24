@@ -11,20 +11,7 @@ import UserProfile from './Pages/UserProfile';
 import ShowPet from './Pages/ShowPet';
 import './App.css';
 
-const API = import.meta.env.VITE_API_URL;
-
 function App() {
-  const [pets, setPets] = useState([]);
-
-  useEffect(() => {
-    fetch(`${API}/pets`)
-      .then((res) => res.json())
-      .then((resJSON) => {
-        // console.log(resJSON);
-        setPets(resJSON);
-      });
-  }, []);
-
   return (
     <Router>
       <div className="app-container">
@@ -34,7 +21,7 @@ function App() {
             <Route path="/" element={<Splash />} />
             <Route
               path="/index"
-              element={<Index pets={pets} setPets={setPets} />}
+              element={<Index />}
             />
             <Route path="/pets/:id" element={<ShowPet />} />
             <Route path="/create-pet" element={<CreatePet />} />
