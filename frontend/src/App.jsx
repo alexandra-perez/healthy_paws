@@ -8,7 +8,8 @@ import Splash from './Pages/Splash';
 import CreatePet from './Pages/CreatePet';
 import EditPet from './Pages/EditPet';
 import UserProfile from './Pages/UserProfile';
-import './App.css'; // Ensure you import your CSS file
+import ShowPet from './Pages/ShowPet';
+import './App.css';
 
 const API = import.meta.env.VITE_API_URL;
 
@@ -19,7 +20,7 @@ function App() {
     fetch(`${API}/pets`)
       .then((res) => res.json())
       .then((resJSON) => {
-        console.log(resJSON);
+        // console.log(resJSON);
         setPets(resJSON);
       });
   }, []);
@@ -31,7 +32,11 @@ function App() {
         <div className="content">
           <Routes>
             <Route path="/" element={<Splash />} />
-            <Route path="/index" element={<Index pets={pets} setPets={setPets} />} />
+            <Route
+              path="/index"
+              element={<Index pets={pets} setPets={setPets} />}
+            />
+            <Route path="/pets/:id" element={<ShowPet />} />
             <Route path="/create-pet" element={<CreatePet />} />
             <Route path="/edit-pet/:id" element={<EditPet />} />
             <Route path="/about-us" element={<AboutUs />} />

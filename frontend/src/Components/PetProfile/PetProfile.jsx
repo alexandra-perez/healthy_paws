@@ -1,4 +1,6 @@
-export default function PetProfile({currentPet}) {
+import { Link } from 'react-router-dom';
+
+export default function PetProfile({ currentPet }) {
   return (
     <div className="PetProfile">
       <div>
@@ -9,6 +11,9 @@ export default function PetProfile({currentPet}) {
         <p>{currentPet.isvaccinated ? 'Vaccinated' : 'Not vaccinated'}</p>
         <p>Existing Conditions: {currentPet.existingconditions}</p>
       </div>
+      <Link to={`/edit-pet/${currentPet.id}`}>
+        <button>Edit</button>
+      </Link>
     </div>
   );
 }
