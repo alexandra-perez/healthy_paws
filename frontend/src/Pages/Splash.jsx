@@ -10,7 +10,7 @@ const Splash = () => {
       <div className="splash-content">
         {/* Add any additional content or components here */}
       </div>
-      <Footer />
+      
     </div>
   );
 };

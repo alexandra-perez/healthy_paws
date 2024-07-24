@@ -1,21 +1,46 @@
+// @import '../../variables.scss';
+
 .hero {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: #f4f4f4;
+  text-align: center;
+  min-height: 50vh;
+
+  display: flex;
+  flex-direction: column;
+
+
+  .image-container {
+    background-image: url('../../assets/splash-pg-image.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px;
+    color: #fff;
   }
-  
-  .hero h1 {
+
+  h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
   }
-  
-  .hero p {
+
+  p {
     font-size: 1.2em;
-    color: #666;
     margin-bottom: 20px;
   }
-  
-  .hero .searchbar {
+
+  .searchbar {
     margin-top: 20px;
   }
-  
+
+  .top-info-container {
+    padding: 100px 50px;
+    background-color: #FAF8ED;
+  }
+
+  .bottom-info-container {
+    padding: 100px 50px;
+  }
+
+  button {
+    background-color: #E8751A;
+  }
+
+}
