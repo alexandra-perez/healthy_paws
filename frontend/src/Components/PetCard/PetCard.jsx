@@ -13,7 +13,7 @@ export default function Index({ pet }) {
         <p>Existing Conditions: {pet.existingconditions}</p>
       </div>
       <div>
-        <Link to="/">
+        <Link to={`/pets/${pet.id}`}>
           <button>View {pet.name}'s details</button>
         </Link>
       </div>
