@@ -6,6 +6,7 @@ import Footer from './Components/Footer/Footer';
 import Index from './Pages/Index/Index';
 import AboutUs from './Pages/AboutUs';
 import Splash from './Pages/Splash';
+import CreatePet from './Pages/CreatePet';
 
 const API = import.meta.env.VITE_API_URL;
 
@@ -30,6 +31,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Splash />} />
           <Route path="/pets" element={<Index pets={pets} setPets={setPets} />} />
+          <Route path="/create-pet" element={<CreatePet />} />
         </Routes>
         <Footer />
       </div>
