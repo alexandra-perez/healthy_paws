@@ -4,7 +4,7 @@ import './App.css';
 
 // Pages
 import Index from './Pages/Index/Index';
-import AboutUs from './Pages/AboutUs/AboutUs'
+import AboutUs from './Pages/AboutUs/AboutUs';
 import Splash from './Pages/Splash/Splash';
 import CreatePet from './Pages/CreatePet/CreatePet';
 import EditPet from './Pages/EditPet/EditPet';
