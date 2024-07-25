@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import PetProfile from '../Components/PetProfile/PetProfile';
+import PetProfile from '../../Components/PetProfile/PetProfile';
 
 export default function ShowPet() {
   const [currentPet, setCurrentPet] = useState({
@@ -34,7 +34,7 @@ export default function ShowPet() {
 
   return (
     <div className="ShowPet">
-          <PetProfile currentPet={currentPet} setCurrentPet={setCurrentPet} />
+      <PetProfile currentPet={currentPet} setCurrentPet={setCurrentPet} />
     </div>
   );
 }
