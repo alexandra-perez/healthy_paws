@@ -24,7 +24,7 @@ const getPet = async (id) => {
 const createPet = async (pet) => {
   try {
     const newPet = await db.one(
-      `INSERT INTO pets (name, species, gender, age, weight, is_vaccinated, existing_conditions) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
+      `INSERT INTO pets (name, species, gender, age, weight, isVaccinated, existingConditions) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
       [
         pet.name,
         pet.species,
@@ -35,6 +35,7 @@ const createPet = async (pet) => {
         pet.existingConditions,
       ]
     );
+    console.log(newPet);
     return newPet;
   } catch (error) {
     console.error(error);
@@ -46,7 +47,7 @@ const createPet = async (pet) => {
 const updatePet = async (id, pet) => {
   try {
     const updatedPet = await db.one(
-      'UPDATE pets SET name=$1, species=$2, gender=$3, age=$4, weight=$5, isVaccinated=$6, existingConditions=$7 WHERE id=8 RETURNING *',
+      'UPDATE pets SET name=$1, species=$2, gender=$3, age=$4, weight=$5, isVaccinated=$6, existingConditions=$7 WHERE id=$8 RETURNING *',
       [
         pet.name,
         pet.species,
@@ -55,6 +56,7 @@ const updatePet = async (id, pet) => {
         pet.weight,
         pet.isVaccinated,
         pet.existingConditions,
+        id
       ]
     );
     return updatedPet;
