@@ -24,7 +24,7 @@ export default function ShowPet() {
         return res.json();
       })
       .then((resJSON) => {
-        console.log(resJSON);
+        // console.log(resJSON);
         setCurrentPet(resJSON);
       })
       .catch(() => {
@@ -32,9 +32,24 @@ export default function ShowPet() {
       });
   }, [id]);
 
+  function handleDelete() {
+    fetch(`${API}/pets/${id}`, {
+      method: 'DELETE',
+      body: JSON.stringify(currentPet),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(() => {
+        navigate('/index');
+      })
+      .catch((error) => console.error(error));
+  }
+
   return (
     <div className="ShowPet">
       <PetProfile currentPet={currentPet} setCurrentPet={setCurrentPet} />
+      <button onClick={handleDelete}>Delete Pet</button>
     </div>
   );
 }
