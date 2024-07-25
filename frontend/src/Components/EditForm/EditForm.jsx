@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import "./EditForm.scss";
 
 export default function EditForm() {
   const [currentPet, setCurrentPet] = useState({
@@ -47,7 +48,7 @@ export default function EditForm() {
       },
     })
       .then(() => {
-        navigate(`/pets`);
+        navigate(`/pets/${id}`);
       })
       .catch((error) => console.error(error));
   }
@@ -66,7 +67,7 @@ export default function EditForm() {
   }, [id]);
 
   return (
-    <div className="EditForm">
+      <div className="EditForm">
       <form onSubmit={handleSubmit}>
         <label>
           Name:
