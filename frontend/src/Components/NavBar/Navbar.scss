@@ -1,10 +1,9 @@
 .navbar {
-<<<<<<< HEAD
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #333;
+  background-color: #776649;
   color: white;
 }
 
@@ -17,38 +16,3 @@
 .navbar a:hover {
   text-decoration: underline;
 }
-
-.navbar-search {
-  cursor: pointer;
-  margin: 0 10px;
-}
-
-.navbar-search:hover {
-  text-decoration: underline;
-}
-
-.navbar .searchbar {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-=======
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #776649;
-    color: white;
-  }
-
-  .navbar a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-  }
-
-  .navbar a:hover {
-    text-decoration: underline;
-  }
->>>>>>> 05b8a9777e01693ba676d56f0a8ab71f403d5991
