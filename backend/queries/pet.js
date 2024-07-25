@@ -24,7 +24,7 @@ const getPet = async (id) => {
 const createPet = async (pet) => {
   try {
     const newPet = await db.one(
-      `INSERT INTO pets (name, species, gender, age, weight, is_vaccinated, existing_conditions) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
+      `INSERT INTO pets (name, species, gender, age, weight, isVaccinated, existingConditions) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
       [
         pet.name,
         pet.species,
@@ -35,6 +35,7 @@ const createPet = async (pet) => {
         pet.existingConditions,
       ]
     );
+    console.log(newPet);
     return newPet;
   } catch (error) {
     console.error(error);

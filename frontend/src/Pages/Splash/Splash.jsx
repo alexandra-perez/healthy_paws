@@ -8,7 +8,6 @@ const Splash = () => {
     <div>
       <Hero />
       <div className="splash-content">
-      </div>
     </div>
   );
 };
