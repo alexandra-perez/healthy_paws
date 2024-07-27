@@ -10,6 +10,7 @@ import CreatePet from './Pages/CreatePet/CreatePet';
 import EditPet from './Pages/EditPet/EditPet';
 import UserProfile from './Pages/UserProfile/UserProfile';
 import ShowPet from './Pages/ShowPet/ShowPet';
+import NotFound from './Pages/NotFound/NotFound'; 
 
 // Components
 import NavBar from './Components/NavBar/Navbar';
@@ -23,12 +24,13 @@ function App() {
         <div className="content">
           <Routes>
             <Route path="/" element={<Splash />} />
-            <Route path="/index" element={<Index  />} />
+            <Route path="/index" element={<Index />} />
             <Route path="/pets/:id" element={<ShowPet />} />
-            <Route path="/create-pet" element={<CreatePet  />} />
+            <Route path="/create-pet" element={<CreatePet />} />
             <Route path="/edit-pet/:id" element={<EditPet />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/user-profile" element={<UserProfile />} />
+            <Route path="*" element={<NotFound />} /> {}
           </Routes>
         </div>
         <Footer />
