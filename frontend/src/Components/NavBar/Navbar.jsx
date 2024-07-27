@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
-function NavBar() {
+import SearchBar from '../SearchBar/SearchBar';
+import './Navbar.scss';
+const Navbar = () => {
+  const [showSearchBar, setShowSearchBar] = useState(false);
+  const toggleSearchBar = () => {
+    setShowSearchBar(!showSearchBar);
+  };
   return (
-    <nav>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about-us">About Us</Link></li>
-        <li><Link to="/user-profile">Profile</Link></li>
-        <li><Link to="/create-pet">Create Pet</Link></li>
-      </ul>
+    <nav className="navbar">
+      <div className="navbar-brand">
+        <Link to="/">HealthyPaws</Link>
+      </div>
+      <div className="navbar-links">
+        <Link to="/index">Home</Link>
+        <Link to="/create-pet">Create Pet</Link>
+        <Link to="/user-profile">User Profile</Link>
+        <span className="navbar-search" onClick={toggleSearchBar}>
+          Search
+        </span>
+      </div>
+      {showSearchBar && <SearchBar />}
     </nav>
   );
-}
-
-export default NavBar;
+};
+export default Navbar;
