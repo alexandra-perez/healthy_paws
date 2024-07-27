@@ -2,14 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import './Navbar.scss';
-
 const Navbar = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
-
   const toggleSearchBar = () => {
     setShowSearchBar(!showSearchBar);
   };
-
   return (
     <nav className="navbar">
       <div className="navbar-brand">
@@ -27,5 +24,4 @@ const Navbar = () => {
     </nav>
   );
 };
-
 export default Navbar;
