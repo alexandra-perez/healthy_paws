@@ -23,9 +23,9 @@ function App() {
         <div className="content">
           <Routes>
             <Route path="/" element={<Splash />} />
-            <Route path="/index" element={<Index pets={pets} setPets={setPets} />} />
+            <Route path="/index" element={<Index  />} />
             <Route path="/pets/:id" element={<ShowPet />} />
-            <Route path="/create-pet" element={<CreatePet onPetCreated={handlePetCreated} />} />
+            <Route path="/create-pet" element={<CreatePet  />} />
             <Route path="/edit-pet/:id" element={<EditPet />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/user-profile" element={<UserProfile />} />
