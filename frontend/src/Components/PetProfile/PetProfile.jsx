@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import defaultImg from '../../assets/pet-default-image.png';
+import AgeConversion from '../AgeConversion/AgeConversion';
 import PetCalendar from '../PetCalendar/PetCalendar';
 import './PetProfile.scss';
 
@@ -57,6 +58,7 @@ export default function PetProfile({ currentPet }) {
       </div>
       <div className="calendar">
         <PetCalendar />
+        <AgeConversion species={currentPet.species} age={currentPet.age} />
       </div>
       <div className={`delete-modal ${clicked ? 'visible' : 'hidden'}`}>
         <p>Are you sure you want to delete this pet?</p>
