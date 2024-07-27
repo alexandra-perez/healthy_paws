@@ -42,6 +42,7 @@ const CreatePet = () => {
       const data = await response.json();
       console.log('Pet created:', data);
 
+      // Clear the form
       setName('');
       setSpecies('');
       setGender('');
@@ -53,7 +54,7 @@ const CreatePet = () => {
       setTimeout(() => {
         setSuccessMessage('');
         navigate(`/pets/${data.id}`);
-      }, 3000);
+      }, 1000);
     } catch (error) {
       console.error('Error creating pet:', error);
     }
