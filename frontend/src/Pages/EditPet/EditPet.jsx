@@ -51,7 +51,7 @@ const EditPet = () => {
   };
 
   return (
-    <div className="edit-pet">
+    <div className="EditPet">
       <h2>Edit Pet Profile</h2>
       <form onSubmit={handleSubmit}>
         <label>

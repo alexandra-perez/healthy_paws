@@ -24,10 +24,18 @@ const UserProfile = () => {
     <div className="user-profile">
       <h2>User Profile</h2>
       <div className="profile-details">
-        <p><strong>Name:</strong> {user.name}</p>
-        <p><strong>Email:</strong> {user.email}</p>
-        <p><strong>Phone:</strong> {user.phone}</p>
-        <p><strong>Address:</strong> {user.address}</p>
+        <p>
+          <strong>Name:</strong> {user.name}
+        </p>
+        <p>
+          <strong>Email:</strong> {user.email}
+        </p>
+        <p>
+          <strong>Phone:</strong> {user.phone}
+        </p>
+        <p>
+          <strong>Address:</strong> {user.address}
+        </p>
       </div>
     </div>
   );

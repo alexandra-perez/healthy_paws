@@ -45,3 +45,8 @@ body {
 * {
   font-family: sans-serif;
 }
+
+a:any-link {
+  text-decoration: none;
+  color: inherit;
+}

@@ -5,10 +5,8 @@ import './PetCalendar.scss';
 
 export default function PetCalendar() {
   const [clickedDates, setClickedDates] = useState([]);
-
   function handleDateClick(e) {
     const date = e.toDateString();
-
     if (!clickedDates.includes(date)) {
       setClickedDates([...clickedDates, date]);
     } else {
@@ -16,16 +14,13 @@ export default function PetCalendar() {
       clickedDates.splice(index, 1);
       setClickedDates([...clickedDates]);
     }
-
     console.log(clickedDates);
   }
-
   function tileClassName({ date, view }) {
     if (view === 'month' && clickedDates.includes(date.toDateString())) {
       return 'highlighted-date';
     }
   }
-
   return (
     <div className="PetCalendar">
       <h2>Activity</h2>

@@ -1,24 +1,23 @@
 .PetCard {
-    padding: 2rem;
-    text-align: center;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    max-width: 20vw;
-    line-height: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 20vw;
+  line-height: 1.5rem;
 
 }
 
 
-  
-  .pet-card h3 {
-    margin-top: 0;
-  }
-  
-  .pet-card p {
-    margin: 0.5rem 0;
-  }
-  
+
+.pet-card h3 {
+  margin-top: 0;
+}
+
+.pet-card p {
+  margin: 0.5rem 0;
+}
