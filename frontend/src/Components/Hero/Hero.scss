@@ -3,22 +3,30 @@
 .hero {
   text-align: center;
   min-height: 50vh;
-
   display: flex;
   flex-direction: column;
+  line-height: 2.5rem;
 
+  .image-container,
+  .top-info-container,
+  .bottom-info-container {
+    padding: 10rem;
+  }
 
   .image-container {
     background-image: url('../../assets/splash-pg-image.jpg');
     background-size: cover;
     background-position: center;
-    padding: 100px;
     color: #fff;
   }
 
   h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 1.5em;
   }
 
   p {
@@ -31,16 +39,19 @@
   }
 
   .top-info-container {
-    padding: 100px 50px;
     background-color: #FAF8ED;
   }
 
   .bottom-info-container {
-    padding: 100px 50px;
-  }
+    i {
+      color: #a3571c;
+      font-size: 2rem;
+      margin: 1rem;
+    }
 
-  button {
-    background-color: #E8751A;
+    button {
+      display: block;
+      margin: 0 auto;
+    }
   }
-
 }

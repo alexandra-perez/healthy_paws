@@ -7,10 +7,14 @@ export default function Index({ pet }) {
       <div>
         <h1>{pet.name}</h1>
         <p>{pet.gender}</p>
-        <p>{pet.age}</p>
-        <p>Weight: {pet.weight}</p>
+        <p>Age {pet.age}</p>
+        <p>{pet.weight} lbs</p>
         <p>{pet.isvaccinated ? 'Vaccinated' : 'Not vaccinated'}</p>
-        <p>Existing Conditions: {pet.existingconditions}</p>
+        <p>
+          {pet.existingconditions
+            ? `Existing conditions: ${pet.existingconditions}`
+            : 'No existing conditions'}
+        </p>
       </div>
       <div>
         <Link to={`/pets/${pet.id}`}>

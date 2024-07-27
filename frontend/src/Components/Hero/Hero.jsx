@@ -21,10 +21,11 @@ const Hero = () => {
         </p>
       </div>
       <div className="bottom-info-container">
+        <i class="fa-solid fa-heart"></i>
         <h2>
           Join our community of pet lovers and give your pet the care they
           deserve.
-          <br />
+          <button>Add a Pet</button>
         </h2>
       </div>
     </div>
