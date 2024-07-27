@@ -8,22 +8,27 @@ const Hero = () => {
   return (
     <div className="hero">
       <div className="image-container">
-        <h1>Welcome to HealthyPaws</h1>
+        <video autoPlay loop muted>
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
+        <h1>HealthyPaws</h1>
         <p>Your one-stop solution for all pet care needs.</p>
         <SearchBar />
       </div>
       <div className="top-info-container">
-        <i class="fa-solid fa-heart-pulse"></i>
+        <i className="fa-solid fa-heart-pulse"></i>
         <h2>Comprehensive Health Tracking for Your Pet</h2>
         <p>
           HealthyPaws is your ultimate companion for managing your pet's health.
+        </p>
+        <p>
           From age and weight to vaccination records, monitor all vital
           information with ease, just like you would track your own health.
-          Ensure your furry friend stays healthy and happy!
         </p>
+        <p>Ensure your furry friend stays healthy and happy!</p>
       </div>
       <div className="bottom-info-container">
-        <i class="fa-solid fa-shield-dog"></i>{' '}
+        <i className="fa-solid fa-shield-dog"></i>{' '}
         <h2>
           Join our community of pet lovers and give your pet the care they
           deserve.

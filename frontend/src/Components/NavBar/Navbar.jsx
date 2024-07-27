@@ -24,7 +24,7 @@ const Navbar = () => {
           Create Pet
         </Link>
         <Link to="/user-profile" className="link">
-          User Profile
+          Profile
         </Link>
         <span className="navbar-search" onClick={toggleSearchBar}>
           <i
