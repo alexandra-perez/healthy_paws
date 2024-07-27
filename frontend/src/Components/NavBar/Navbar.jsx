@@ -12,14 +12,22 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <Link to="/">HealthyPaws</Link>
+        <Link to="/" className="link">
+          HealthyPaws
+        </Link>
       </div>
       <div className="navbar-links">
-        <Link to="/index">Home</Link>
-        <Link to="/create-pet">Create Pet</Link>
-        <Link to="/user-profile">User Profile</Link>
+        <Link to="/index" className="link">
+          Home
+        </Link>
+        <Link to="/create-pet" className="link">
+          Create Pet
+        </Link>
+        <Link to="/user-profile" className="link">
+          User Profile
+        </Link>
         <span className="navbar-search" onClick={toggleSearchBar}>
-        <i
+          <i
             className={`fa-solid fa-magnifying-glass ${
               showSearchBar ? 'block' : 'hidden'
             }`}

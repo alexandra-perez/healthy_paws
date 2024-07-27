@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import splashImg from '../../assets/splash-pg-image.jpg';
 import './Hero.scss';
@@ -12,6 +13,7 @@ const Hero = () => {
         <SearchBar />
       </div>
       <div className="top-info-container">
+        <i class="fa-solid fa-heart-pulse"></i>
         <h2>Comprehensive Health Tracking for Your Pet</h2>
         <p>
           HealthyPaws is your ultimate companion for managing your pet's health.
@@ -21,10 +23,13 @@ const Hero = () => {
         </p>
       </div>
       <div className="bottom-info-container">
+        <i class="fa-solid fa-shield-dog"></i>{' '}
         <h2>
           Join our community of pet lovers and give your pet the care they
           deserve.
-          <br />
+          <Link to="/create-pet">
+            <button>Add a Pet</button>
+          </Link>
         </h2>
       </div>
     </div>

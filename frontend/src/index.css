@@ -17,23 +17,36 @@ body {
 }
 
 button {
-  border-radius: 30px;
-  padding: 10px 15px;
+  background-color: #F17F29;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 20px;
+  padding: 10px 20px;
   border: none;
+  cursor: pointer;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-  }
-  
-  #root {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
+button:hover {
+  background-color: #a3571c;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 * {
-    font-family: sans-serif;
+  font-family: sans-serif;
+}
+
+a:any-link {
+  text-decoration: none;
+  color: inherit;
 }

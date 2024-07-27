@@ -2,10 +2,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #87A330;
+  padding: 2rem 4rem;
+  background-color: #F17F29;
   color: white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  .link:hover {
+    text-decoration: underline;
+    text-underline-offset: 10px;
+  }
 }
 
 .navbar a {
