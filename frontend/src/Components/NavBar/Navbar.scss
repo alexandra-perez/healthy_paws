@@ -7,6 +7,15 @@
   color: white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    i {
+      margin-right: 0.5rem;
+    }
+  }
+
   .link:hover {
     text-decoration: underline;
     text-underline-offset: 10px;

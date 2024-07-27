@@ -13,7 +13,7 @@ const Hero = () => {
         </video>
         <h1>HealthyPaws</h1>
         <p>Your one-stop solution for all pet care needs.</p>
-        <SearchBar />
+        {/* <SearchBar /> */}
       </div>
       <div className="top-info-container">
         <i className="fa-solid fa-heart-pulse"></i>
