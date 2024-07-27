@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import defaultImg from '../../assets/pet-default-image.png';
+import PetCalendar from '../PetCalendar/PetCalendar';
 
 import './PetProfile.scss';
 
@@ -50,6 +51,9 @@ export default function PetProfile({ currentPet }) {
             </button>
           </div>
         </div>
+      </div>
+      <div className='calendar'>
+        <PetCalendar/>
       </div>
       <div className={`delete-modal ${clicked ? 'visible' : 'hidden'}`}>
         <p>Are you sure you want to delete this pet?</p>
