@@ -12,7 +12,7 @@ import UserProfile from './Pages/UserProfile/UserProfile';
 import ShowPet from './Pages/ShowPet/ShowPet';
 
 // Components
-import NavBar from './Components/NavBar/NavBar';
+import NavBar from './Components/NavBar/Navbar';
 import Footer from './Components/Footer/Footer';
 
 function App() {
