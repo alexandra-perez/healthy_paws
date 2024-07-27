@@ -1,26 +1,49 @@
 .about-us {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
   background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+  text-align: left;
 
-.about-us h2,
-.about-us h3 {
-  text-align: center;
-}
+  .column {
+    flex: 1;
+    margin: 0 1rem;
 
-.about-us p {
-  text-align: justify;
-}
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
 
-.about-us ul {
-  list-style-type: none;
-  padding: 0;
-}
+    ul {
+      list-style-type: none;
+      padding: 0;
 
-.about-us ul li {
-  margin-bottom: 10px;
+      li {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+
+        .profile-img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          margin-right: 1rem;
+        }
+
+        a {
+          color: #007bff;
+          text-decoration: none;
+          transition: color 0.3s;
+
+          &:hover {
+            color: #0056b3;
+          }
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
 }

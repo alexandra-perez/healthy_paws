@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import PetCard from '../../Components/PetCard/PetCard';
+import SearchBar from '../../Components/SearchBar/SearchBar';
 import './Index.scss';
 
 export default function Index() {
@@ -11,15 +12,19 @@ export default function Index() {
     fetch(`${API}/pets`)
       .then((res) => res.json())
       .then((resJSON) => {
-        // console.log(resJSON);
         setPets(resJSON);
       });
   }, []);
+
   return (
     <div className="Index">
-      {pets.map((pet) => {
-        return <PetCard key={pet.id} pet={pet} />;
-      })}
+      <SearchBar pets={pets} />
+      <div className="pet-list">
+        {pets.map((pet) => (
+          <PetCard key={pet.id} pet={pet} />
+        ))}
+      </div>
     </div>
   );
 }
+
