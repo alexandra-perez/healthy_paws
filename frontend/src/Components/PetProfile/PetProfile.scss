@@ -39,7 +39,10 @@
         margin: 2rem;
     }
 
-    .highlighted-date {
-        background-color: #1D67CF;
+    .delete-modal {
+        button {
+            margin-top: 1rem;
+            margin-right: 1rem;
+        }
     }
 }
