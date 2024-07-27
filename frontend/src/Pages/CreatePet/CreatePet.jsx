@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './CreatePet.scss';
 
-const CreatePet = ({ onPetCreated }) => {
+const CreatePet = () => {
   const [name, setName] = useState('');
   const [species, setSpecies] = useState('');
   const [gender, setGender] = useState('');
@@ -10,6 +11,7 @@ const CreatePet = ({ onPetCreated }) => {
   const [isVaccinated, setIsVaccinated] = useState(false);
   const [existingConditions, setExistingConditions] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +26,7 @@ const CreatePet = ({ onPetCreated }) => {
     };
     const API = import.meta.env.VITE_API_URL || 'http://localhost:3000/pets';
     try {
-      const response = await fetch(`${API}/pets`, { 
+      const response = await fetch(`${API}/pets`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,7 +41,7 @@ const CreatePet = ({ onPetCreated }) => {
 
       const data = await response.json();
       console.log('Pet created:', data);
-      onPetCreated(data);
+
       setName('');
       setSpecies('');
       setGender('');
@@ -50,6 +52,7 @@ const CreatePet = ({ onPetCreated }) => {
       setSuccessMessage('Thank you for adding your wonderful pet to our community!');
       setTimeout(() => {
         setSuccessMessage('');
+        navigate(`/pets/${data.id}`);
       }, 3000);
     } catch (error) {
       console.error('Error creating pet:', error);
