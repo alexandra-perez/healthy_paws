@@ -1,102 +1,105 @@
-
 import React, { useState } from 'react';
+import './CreatePet.scss';
 
-const API = import.meta.env.VITE_API_URL;
-
-function CreatePet({ onPetCreated, onClose }) {
+const CreatePet = ({ onPetCreated }) => {
   const [name, setName] = useState('');
+  const [species, setSpecies] = useState('');
   const [gender, setGender] = useState('');
   const [age, setAge] = useState('');
   const [weight, setWeight] = useState('');
   const [isVaccinated, setIsVaccinated] = useState(false);
   const [existingConditions, setExistingConditions] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newPet = {
       name,
+      species,
       gender,
       age,
       weight,
       isVaccinated,
-      existingConditions
+      existingConditions,
     };
-
+    const API = import.meta.env.VITE_API_URL || 'http://localhost:3000/pets';
     try {
-      const response = await fetch(`${API}/pets`, {
+      const response = await fetch(`${API}/pets`, { 
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(newPet)
+        body: JSON.stringify(newPet),
       });
 
       if (!response.ok) {
-        throw new Error(`Failed to create pet: ${response.statusText}`);
+        const errorText = await response.text();
+        throw new Error(`Failed to create pet: ${errorText}`);
       }
 
-      const responseData = await response.json();
-      onPetCreated(responseData);
-      onClose(); // Close the modal after submission
+      const data = await response.json();
+      console.log('Pet created:', data);
+      onPetCreated(data);
+      setName('');
+      setSpecies('');
+      setGender('');
+      setAge('');
+      setWeight('');
+      setIsVaccinated(false);
+      setExistingConditions('');
+      setSuccessMessage('Thank you for adding your wonderful pet to our community!');
+      setTimeout(() => {
+        setSuccessMessage('');
+      }, 3000);
     } catch (error) {
       console.error('Error creating pet:', error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Name:</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Gender:</label>
-        <input
-          type="text"
-          value={gender}
-          onChange={(e) => setGender(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Age:</label>
-        <input
-          type="text"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Weight:</label>
-        <input
-          type="text"
-          value={weight}
-          onChange={(e) => setWeight(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Vaccinated:</label>
-        <input
-          type="checkbox"
-          checked={isVaccinated}
-          onChange={(e) => setIsVaccinated(e.target.checked)}
-        />
-      </div>
-      <div>
-        <label>Existing Conditions:</label>
-        <input
-          type="text"
-          value={existingConditions}
-          onChange={(e) => setExistingConditions(e.target.value)}
-        />
-      </div>
-      <button type="submit">Create Pet</button>
-    </form>
+    <div className="create-pet">
+      <h2>Create New Pet Profile</h2>
+      {successMessage && <div className="success-message">{successMessage}</div>}
+      <form onSubmit={handleSubmit}>
+        <label>
+          Name:
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+        </label>
+        <label>
+          Species:
+          <input type="text" value={species} onChange={(e) => setSpecies(e.target.value)} required />
+        </label>
+        <label>
+          Gender:
+          <input type="text" value={gender} onChange={(e) => setGender(e.target.value)} required />
+        </label>
+        <label>
+          Age:
+          <input type="number" value={age} onChange={(e) => setAge(e.target.value)} required />
+        </label>
+        <label>
+          Weight:
+          <input type="number" value={weight} onChange={(e) => setWeight(e.target.value)} required />
+        </label>
+        <label>
+          Vaccinated:
+          <input
+            type="checkbox"
+            checked={isVaccinated}
+            onChange={(e) => setIsVaccinated(e.target.checked)}
+          />
+        </label>
+        <label>
+          Existing Conditions:
+          <textarea
+            value={existingConditions}
+            onChange={(e) => setExistingConditions(e.target.value)}
+          ></textarea>
+        </label>
+        <button type="submit">Create Pet</button>
+      </form>
+    </div>
   );
-}
+};
 
 export default CreatePet;
-
