@@ -1,30 +1,33 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import defaultImg from '../../assets/pet-default-image.png';
 import PetCalendar from '../PetCalendar/PetCalendar';
-
 import './PetProfile.scss';
+
+const API = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 export default function PetProfile({ currentPet }) {
   const [clicked, setClicked] = useState(false);
+  const navigate = useNavigate();
 
   function showModal() {
     setClicked((prevClick) => !prevClick);
-    console.log(setClicked);
   }
 
   function handleDelete() {
-    fetch(`${API}/pets/${id}`, {
+    fetch(`${API}/pets/${currentPet.id}`, {
       method: 'DELETE',
-      body: JSON.stringify(currentPet),
       headers: {
         'Content-Type': 'application/json',
       },
     })
-      .then(() => {
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to delete pet');
+        }
         navigate('/index');
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error('Error:', error));
   }
 
   return (
@@ -52,8 +55,8 @@ export default function PetProfile({ currentPet }) {
           </div>
         </div>
       </div>
-      <div className='calendar'>
-        <PetCalendar/>
+      <div className="calendar">
+        <PetCalendar />
       </div>
       <div className={`delete-modal ${clicked ? 'visible' : 'hidden'}`}>
         <p>Are you sure you want to delete this pet?</p>
