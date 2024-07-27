@@ -3,7 +3,7 @@
   min-height: 50vh;
   display: flex;
   flex-direction: column;
-  line-height: 2.5rem;
+  line-height: 2rem;
 
   .image-container {
     overflow: hidden;
@@ -18,6 +18,7 @@
 
     p {
       font-weight: 700;
+      // color: #797171;
     }
   }
 
@@ -39,7 +40,7 @@
 
   .top-info-container,
   .bottom-info-container {
-    padding: 10rem;
+    padding: 5rem;
     z-index: 1000;
   }
 
@@ -67,6 +68,7 @@
     button {
       display: block;
       margin: 2rem auto;
+      font-size:1rem;
     }
   }
 }
