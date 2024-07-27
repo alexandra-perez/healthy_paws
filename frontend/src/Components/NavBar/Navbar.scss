@@ -3,8 +3,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #776649;
+  background-color: #87A330;
   color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .navbar a {
@@ -15,4 +16,12 @@
 
 .navbar a:hover {
   text-decoration: underline;
+}
+
+.block {
+  display: block;
+}
+
+.hidden {
+  display: none;
 }
