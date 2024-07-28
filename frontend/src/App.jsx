@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
@@ -30,7 +30,7 @@ function App() {
             <Route path="/edit-pet/:id" element={<EditPet />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/user-profile" element={<UserProfile />} />
-            <Route path="*" element={<NotFound />} /> {}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
         <Footer />

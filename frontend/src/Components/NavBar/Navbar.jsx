@@ -1,10 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import './Navbar.scss';
 
 const Navbar = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
+  const [pets, setPets] = useState([]);
+
+  const API = import.meta.env.VITE_API_URL;
+
+  useEffect(() => {
+    fetch(`${API}/pets`)
+      .then((res) => res.json())
+      .then((resJSON) => {
+        setPets(resJSON);
+      });
+  }, []);
+
   const toggleSearchBar = () => {
     setShowSearchBar(!showSearchBar);
   };
@@ -13,7 +25,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-brand">
         <Link to="/" className="link logo">
-          <i class="fa-solid fa-paw"></i>
+          <i className="fa-solid fa-paw"></i>
           HealthyPaws
         </Link>
       </div>
@@ -28,15 +40,12 @@ const Navbar = () => {
           Profile
         </Link>
         <span className="navbar-search" onClick={toggleSearchBar}>
-          <i
-            className={`fa-solid fa-magnifying-glass ${
-              showSearchBar ? 'block' : 'hidden'
-            }`}
-          ></i>
+          <i className={`fa-solid fa-magnifying-glass`}></i>
         </span>
       </div>
-      {showSearchBar && <SearchBar />}
+      {showSearchBar && <SearchBar pets={pets} />}
     </nav>
   );
 };
+
 export default Navbar;
