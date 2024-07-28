@@ -1,6 +1,15 @@
 .Index {
-    margin: 5rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center; 
+  }
+  
+  .pet-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 5rem;
-}
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    max-width: 1200px; 
+    width: 100%;
+    justify-items: center; 
+  }
+  

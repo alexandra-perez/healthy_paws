@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import PetCard from '../../Components/PetCard/PetCard';
-import SearchBar from '../../Components/SearchBar/SearchBar';
 import './Index.scss';
 
 export default function Index() {
@@ -18,8 +17,7 @@ export default function Index() {
 
   return (
     <div className="Index">
-      <SearchBar pets={pets} />
-      <div className="pet-list">
+      <div className="pet-grid">
         {pets.map((pet) => (
           <PetCard key={pet.id} pet={pet} />
         ))}
